@@ -6,7 +6,7 @@
  */
 
 import React from 'react'
-import { SafeAreaView, ScrollView, StatusBar, View, useColorScheme } from 'react-native'
+import { SafeAreaView, ScrollView, StatusBar, useColorScheme, View } from 'react-native'
 
 import Activity from './src/components/activity/activity'
 import useThemeStyles from './src/hooks/theme'
