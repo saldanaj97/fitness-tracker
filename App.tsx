@@ -6,20 +6,14 @@
  */
 
 import React from 'react'
-import {SafeAreaView, ScrollView, StatusBar, Text, useColorScheme, View} from 'react-native'
+import {SafeAreaView, ScrollView, StatusBar, View, useColorScheme} from 'react-native'
 
-import {Colors} from 'react-native/Libraries/NewAppScreen'
+import Activity from './src/components/activity/activity'
+import useThemeStyles from './src/hooks/theme'
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark'
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  }
-
-  const textStyle = {
-    color: isDarkMode ? Colors.white : Colors.black,
-  }
+  const {backgroundStyle, viewStyle} = useThemeStyles(isDarkMode)
 
   return (
     <SafeAreaView style={backgroundStyle}>
@@ -28,12 +22,8 @@ function App(): React.JSX.Element {
         backgroundColor={backgroundStyle.backgroundColor}
       />
       <ScrollView contentInsetAdjustmentBehavior="automatic" style={backgroundStyle}>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}
-        />
-        <Text style={textStyle}>Hello</Text>
+        <View style={viewStyle} />
+        <Activity />
       </ScrollView>
     </SafeAreaView>
   )

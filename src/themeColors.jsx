@@ -1,4 +1,4 @@
-export const darkModeColors = {
+export const DarkModeColors = {
   primary: '#050953',
   secondary: '#E3E5EE',
   primaryAccent: '#FFCBE1',
@@ -8,7 +8,7 @@ export const darkModeColors = {
   detailFont: '#B7B5C8',
 }
 
-export const lightModeColors = {
+export const LightModeColors = {
   primary: '#E3E5EE',
   secondary: '#050953',
   primaryAccent: '#050953',
