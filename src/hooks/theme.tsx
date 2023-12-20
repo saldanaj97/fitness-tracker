@@ -1,4 +1,4 @@
-import {DarkModeColors, LightModeColors} from '../themeColors'
+import { DarkModeColors, LightModeColors } from '../themeColors'
 
 const useThemeStyles = (isDarkMode: boolean) => {
   const backgroundStyle = {
@@ -15,7 +15,7 @@ const useThemeStyles = (isDarkMode: boolean) => {
     ...textStyle,
   }
 
-  return {backgroundStyle, textStyle, viewStyle}
+  return { backgroundStyle, textStyle, viewStyle }
 }
 
 export default useThemeStyles
