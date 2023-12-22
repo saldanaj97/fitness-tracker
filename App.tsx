@@ -10,6 +10,7 @@ import { SafeAreaView, ScrollView, StatusBar, StyleSheet, useColorScheme, View }
 
 import Activity from './src/components/activity/activity'
 import { DarkModeColors, LightModeColors } from './src/themeColors'
+import Navbar from './src/ui/activity/navigation/navbar'
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark'
@@ -20,7 +21,9 @@ function App(): React.JSX.Element {
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={isDarkMode ? DarkModeColors.primary : LightModeColors.primary}
+        animated={true}
       />
+      <Navbar />
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <View style={styles.view} />
       </ScrollView>
@@ -31,7 +34,7 @@ function App(): React.JSX.Element {
 
 const darkModeStyles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: '100%',
     backgroundColor: DarkModeColors.primary,
   },
   text: {
