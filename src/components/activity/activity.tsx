@@ -30,6 +30,7 @@ const darkModeStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignContent: 'center',
+    marginVertical: 15,
   },
   heading: {
     color: DarkModeColors.primaryFont,

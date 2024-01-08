@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FlatList, StyleSheet, Text, useColorScheme, View } from 'react-native'
 
 import { DarkModeColors, LightModeColors } from '../../../themeColors'
@@ -6,6 +6,7 @@ import { DarkModeColors, LightModeColors } from '../../../themeColors'
 export default function TimePeriodPicker(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark'
   const styles = isDarkMode ? darkModeStyles : lightModeStyles
+  const [timePeriodSelected, setTimePeriodSelected] = useState('Today')
 
   const timePeriods = ['Today', 'Week', 'Month', 'Year']
 
@@ -13,7 +14,11 @@ export default function TimePeriodPicker(): React.JSX.Element {
     <View style={styles.container}>
       <FlatList
         data={timePeriods}
-        renderItem={({ item }) => <Text style={styles.text}>{item}</Text>}
+        renderItem={({ item }) => (
+          <View style={item === timePeriodSelected ? styles.selectedText : styles.text}>
+            <Text style={styles.text}>{item}</Text>
+          </View>
+        )}
         keyExtractor={(item) => item}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
@@ -29,6 +34,12 @@ const darkModeStyles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
   },
+  selectedText: {
+    borderBottomWidth: 2,
+    borderBottomColor: DarkModeColors.primaryFont,
+    paddingVertical: 5,
+    marginBottom: 15,
+  },
   timePeriodContainer: {
     justifyContent: 'space-evenly',
     flexGrow: 1,
@@ -36,7 +47,7 @@ const darkModeStyles = StyleSheet.create({
   text: {
     color: DarkModeColors.primaryFont,
     marginHorizontal: 10,
-    marginVertical: 10,
+    marginVertical: 5,
     fontSize: 16,
     fontWeight: 'bold',
   },
@@ -47,6 +58,12 @@ const lightModeStyles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     width: '100%',
+  },
+  selectedText: {
+    borderBottomWidth: 2,
+    borderBottomColor: LightModeColors.primaryFont,
+    paddingVertical: 5,
+    marginBottom: 15,
   },
   timePeriodContainer: {
     justifyContent: 'space-evenly',
