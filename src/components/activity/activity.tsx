@@ -10,7 +10,10 @@ export default function Activity(): React.JSX.Element {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.heading}>Activity</Text>
+      <SafeAreaView style={styles.titleContainer}>
+        <Text style={styles.heading}>Activity</Text>
+        <Text style={styles.subheading}>Show All</Text>
+      </SafeAreaView>
       <Distance />
     </SafeAreaView>
   )
@@ -22,9 +25,22 @@ const darkModeStyles = StyleSheet.create({
     backgroundColor: `rgba(0, 0, 0, 0.15)`, // Overlay with 20% black
     borderRadius: 25,
   },
+  titleContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignContent: 'center',
+  },
   heading: {
     color: DarkModeColors.primaryFont,
     fontSize: 20,
+    padding: 20,
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+  },
+  subheading: {
+    color: DarkModeColors.detailFont,
+    fontSize: 12,
     padding: 20,
     textTransform: 'uppercase',
     fontWeight: 'bold',
@@ -33,13 +49,26 @@ const darkModeStyles = StyleSheet.create({
 
 const lightModeStyles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: '100%',
     backgroundColor: `rgba(0, 0, 0, 0.15)`, // Overlay with 20% black
     borderRadius: 25,
+  },
+  titleContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignContent: 'center',
   },
   heading: {
     color: LightModeColors.primaryFont,
     fontSize: 20,
+    padding: 20,
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+  },
+  subheading: {
+    color: LightModeColors.detailFont,
+    fontSize: 14,
     padding: 20,
     textTransform: 'uppercase',
     fontWeight: 'bold',
