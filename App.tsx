@@ -6,12 +6,14 @@
  */
 
 import React from 'react'
-import { SafeAreaView, ScrollView, StatusBar, StyleSheet, useColorScheme, View } from 'react-native'
+import { SafeAreaView, StatusBar, StyleSheet, useColorScheme } from 'react-native'
 
 import Activity from './src/components/activity/activity'
 import { DarkModeColors, LightModeColors } from './src/themeColors'
+import BottomBar from './src/ui/activity/navigation/bottom-bar'
 import MenuBar from './src/ui/activity/navigation/menu-bar'
 
+// TODO: Replace the names of the bar components for less confusion
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark'
   const styles = isDarkMode ? darkModeStyles : lightModeStyles
@@ -24,10 +26,8 @@ function App(): React.JSX.Element {
         animated={true}
       />
       <MenuBar />
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <View style={styles.view} />
-      </ScrollView>
       <Activity />
+      <BottomBar />
     </SafeAreaView>
   )
 }

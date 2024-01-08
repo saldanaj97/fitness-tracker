@@ -2,7 +2,7 @@ import React from 'react'
 import { SafeAreaView, StyleSheet, Text, useColorScheme } from 'react-native'
 
 import { DarkModeColors, LightModeColors } from '../../themeColors'
-import Distance from './distance'
+import Data from './distance'
 
 export default function Activity(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark'
@@ -14,7 +14,7 @@ export default function Activity(): React.JSX.Element {
         <Text style={styles.heading}>Activity</Text>
         <Text style={styles.subheading}>Show All</Text>
       </SafeAreaView>
-      <Distance />
+      <Data />
     </SafeAreaView>
   )
 }
