@@ -4,7 +4,6 @@ import { SafeAreaView, StatusBar, StyleSheet, useColorScheme } from 'react-nativ
 
 import { DarkModeColors, LightModeColors } from './src/themeColors'
 import BottomBar from './src/ui/navigation/bottom-bar'
-import MenuBar from './src/ui/navigation/menu-bar'
 import NavigationStackWrapper from './src/wrappers/navigation-wrapper'
 
 function App(): React.JSX.Element {
@@ -19,7 +18,6 @@ function App(): React.JSX.Element {
           backgroundColor={isDarkMode ? DarkModeColors.primary : LightModeColors.primary}
           animated={true}
         />
-        <MenuBar />
         <NavigationStackWrapper />
         <BottomBar />
       </SafeAreaView>
