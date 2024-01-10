@@ -1,34 +1,29 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
+import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
 import { SafeAreaView, StatusBar, StyleSheet, useColorScheme } from 'react-native'
 
-import Activity from './src/components/activity/activity'
 import { DarkModeColors, LightModeColors } from './src/themeColors'
-import BottomBar from './src/ui/activity/navigation/bottom-bar'
-import MenuBar from './src/ui/activity/navigation/menu-bar'
+import BottomBar from './src/ui/navigation/bottom-bar'
+import MenuBar from './src/ui/navigation/menu-bar'
+import NavigationStackWrapper from './src/wrappers/navigation-wrapper'
 
-// TODO: Replace the names of the bar components for less confusion
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark'
   const styles = isDarkMode ? darkModeStyles : lightModeStyles
 
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={isDarkMode ? DarkModeColors.primary : LightModeColors.primary}
-        animated={true}
-      />
-      <MenuBar />
-      <Activity />
-      <BottomBar />
-    </SafeAreaView>
+    <NavigationContainer>
+      <SafeAreaView style={styles.container}>
+        <StatusBar
+          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+          backgroundColor={isDarkMode ? DarkModeColors.primary : LightModeColors.primary}
+          animated={true}
+        />
+        <MenuBar />
+        <NavigationStackWrapper />
+        <BottomBar />
+      </SafeAreaView>
+    </NavigationContainer>
   )
 }
 
@@ -42,15 +37,13 @@ const darkModeStyles = StyleSheet.create({
   },
   view: {
     backgroundColor: DarkModeColors.primary,
-    margin: 10,
+    height: '100%',
   },
 })
 
 const lightModeStyles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignContent: 'center',
+    height: '100%',
     backgroundColor: LightModeColors.primary,
   },
   text: {
@@ -58,7 +51,7 @@ const lightModeStyles = StyleSheet.create({
   },
   view: {
     backgroundColor: LightModeColors.primary,
-    margin: 10,
+    height: '100%',
   },
 })
 

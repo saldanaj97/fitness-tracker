@@ -2,6 +2,7 @@ import React from 'react'
 import { SafeAreaView, StyleSheet, Text, useColorScheme } from 'react-native'
 
 import { DarkModeColors, LightModeColors } from '../../themeColors'
+import TimePeriodPicker from '../../ui/navigation/timePeriodPicker'
 import Data from './distance'
 
 export default function Activity(): React.JSX.Element {
@@ -9,12 +10,15 @@ export default function Activity(): React.JSX.Element {
   const styles = isDarkMode ? darkModeStyles : lightModeStyles
 
   return (
-    <SafeAreaView style={styles.container}>
-      <SafeAreaView style={styles.titleContainer}>
-        <Text style={styles.heading}>Activity</Text>
-        <Text style={styles.subheading}>Show All</Text>
+    <SafeAreaView>
+      <TimePeriodPicker />
+      <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.titleContainer}>
+          <Text style={styles.heading}>Activity</Text>
+          <Text style={styles.subheading}>Show All</Text>
+        </SafeAreaView>
+        <Data />
       </SafeAreaView>
-      <Data />
     </SafeAreaView>
   )
 }
@@ -22,15 +26,14 @@ export default function Activity(): React.JSX.Element {
 const darkModeStyles = StyleSheet.create({
   container: {
     height: '100%',
-    backgroundColor: `rgba(0, 0, 0, 0.15)`, // Overlay with 20% black
-    borderRadius: 25,
+    backgroundColor: `rgba(5, 9, 83, .95)`, // primary color was in hex -> converted it to rgba for opacity
   },
   titleContainer: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignContent: 'center',
-    marginVertical: 15,
+    marginVertical: 5,
   },
   heading: {
     color: DarkModeColors.primaryFont,
@@ -49,10 +52,12 @@ const darkModeStyles = StyleSheet.create({
 })
 
 const lightModeStyles = StyleSheet.create({
+  timePeriodSelectContainer: {},
   container: {
     height: '100%',
-    backgroundColor: `rgba(0, 0, 0, 0.15)`, // Overlay with 20% black
+    backgroundColor: `rgba(227, 229, 238, .3)`, // primary color was in hex -> converted it to rgba for opacity
     borderRadius: 25,
+    marginTop: 10,
   },
   titleContainer: {
     display: 'flex',
