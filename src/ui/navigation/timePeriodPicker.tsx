@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { FlatList, StyleSheet, Text, useColorScheme, View } from 'react-native'
+import { FlatList, SafeAreaView, StyleSheet, Text, useColorScheme, View } from 'react-native'
 
-import { DarkModeColors, LightModeColors } from '../../../themeColors'
+import { DarkModeColors, LightModeColors } from '../../themeColors'
 
 export default function TimePeriodPicker(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark'
@@ -11,7 +11,7 @@ export default function TimePeriodPicker(): React.JSX.Element {
   const timePeriods = ['Today', 'Week', 'Month', 'Year']
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <FlatList
         data={timePeriods}
         renderItem={({ item }) => (
@@ -24,7 +24,7 @@ export default function TimePeriodPicker(): React.JSX.Element {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.timePeriodContainer}
       />
-    </View>
+    </SafeAreaView>
   )
 }
 
@@ -32,24 +32,25 @@ const darkModeStyles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'row',
-    width: '100%',
+    backgroundColor: DarkModeColors.primary,
   },
   selectedText: {
     borderBottomWidth: 2,
     borderBottomColor: DarkModeColors.primaryFont,
     paddingVertical: 5,
-    marginBottom: 15,
   },
   timePeriodContainer: {
     justifyContent: 'space-evenly',
     flexGrow: 1,
+    marginVertical: 20,
   },
   text: {
     color: DarkModeColors.primaryFont,
     marginHorizontal: 10,
     marginVertical: 5,
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
+    textTransform: 'uppercase',
   },
 })
 
@@ -63,17 +64,18 @@ const lightModeStyles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: LightModeColors.primaryFont,
     paddingVertical: 5,
-    marginBottom: 15,
   },
   timePeriodContainer: {
     justifyContent: 'space-evenly',
     flexGrow: 1,
+    marginVertical: 20,
   },
   text: {
     color: LightModeColors.primaryFont,
     marginHorizontal: 10,
-    marginVertical: 10,
-    fontSize: 16,
+    marginVertical: 5,
+    fontSize: 14,
     fontWeight: 'bold',
+    textTransform: 'uppercase',
   },
 })
