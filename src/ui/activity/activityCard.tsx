@@ -120,7 +120,7 @@ const lightModeStyles = StyleSheet.create({
     fontSize: 20,
   },
   percentage: {
-    color: LightModeColors.detailFont,
+    color: LightModeColors.primaryFont,
     fontWeight: 'bold',
     fontSize: 15,
     textAlign: 'right',
@@ -133,7 +133,7 @@ const lightModeStyles = StyleSheet.create({
     marginTop: 5,
   },
   progressBar: {
-    backgroundColor: LightModeColors.primary,
+    backgroundColor: LightModeColors.secondary,
     borderRadius: 10,
     height: 10,
   },

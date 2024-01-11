@@ -85,12 +85,12 @@ const lightModeStyles = StyleSheet.create({
     alignContent: 'center',
   },
   icon: {
-    color: DarkModeColors.primaryFont,
+    color: LightModeColors.primaryFont,
     fontSize: 20,
     padding: 20,
   },
   plusIcon: {
-    color: LightModeColors.primaryFont,
+    color: LightModeColors.primary,
   },
   plusIconContainer: {
     width: 70,
