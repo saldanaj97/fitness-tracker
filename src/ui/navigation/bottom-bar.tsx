@@ -101,5 +101,13 @@ const lightModeStyles = StyleSheet.create({
     alignItems: 'center',
     bottom: 15,
     position: 'relative',
+    // iOS dropshadow
+    shadowColor: 'black',
+    shadowOpacity: 0.26,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 10,
+
+    // Android dropshadow
+    elevation: 2,
   },
 })
