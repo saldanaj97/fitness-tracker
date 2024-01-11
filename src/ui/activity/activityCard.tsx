@@ -8,11 +8,12 @@ import { DistanceDataItem } from '../../types/activity/types'
 export default function ActivityCard({ activityData }: { activityData: DistanceDataItem }): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark'
   const styles = isDarkMode ? darkModeStyles : lightModeStyles
+  const theme = isDarkMode ? DarkModeColors : LightModeColors
 
   return (
     <View style={styles.container}>
       <View style={styles.descriptionContainer}>
-        <MaterialCommunityIcon name={activityData.icon} size={45} color={DarkModeColors.primary} />
+        <MaterialCommunityIcon name={activityData.icon} size={45} color={theme.primary} />
         <View style={styles.dataContainer}>
           <Text style={styles.heading}>{activityData.title}</Text>
           <Text style={styles.currentValue}>
@@ -97,10 +98,19 @@ const darkModeStyles = StyleSheet.create({
 const lightModeStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: LightModeColors.primary,
+    backgroundColor: LightModeColors.secondary,
     borderRadius: 10,
     marginBottom: 20,
     padding: 20,
+
+    // iOS dropshadow
+    shadowColor: 'black',
+    shadowOpacity: 0.26,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 10,
+
+    // Android dropshadow
+    elevation: 2,
   },
   descriptionContainer: {
     flexDirection: 'row',
@@ -115,25 +125,25 @@ const lightModeStyles = StyleSheet.create({
     fontSize: 15,
   },
   currentValue: {
-    color: LightModeColors.primaryFont,
+    color: LightModeColors.secondaryFont,
     fontWeight: 'bold',
     fontSize: 20,
   },
   percentage: {
-    color: LightModeColors.primaryFont,
+    color: LightModeColors.detailFont,
     fontWeight: 'bold',
     fontSize: 15,
     textAlign: 'right',
     marginTop: 25,
   },
   prograssBarBackground: {
-    backgroundColor: LightModeColors.detailFont,
+    backgroundColor: '#797785', // Use a hex colro instead of theme for light mode case
     borderRadius: 10,
     marginBottom: 25,
     marginTop: 5,
   },
   progressBar: {
-    backgroundColor: LightModeColors.secondary,
+    backgroundColor: LightModeColors.primary,
     borderRadius: 10,
     height: 10,
   },
