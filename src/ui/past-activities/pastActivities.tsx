@@ -1,8 +1,17 @@
 import React from 'react'
 import { SafeAreaView, StyleSheet, Text, useColorScheme, View } from 'react-native'
 
+import ActivityCard from '../../components/past-activities/activity-card'
 import DatePicker from '../../components/past-activities/date-picker'
 import { DarkModeColors, LightModeColors } from '../../themeColors'
+import { PastActivityDataItem } from '../../types/activity/types'
+
+const testData: PastActivityDataItem = {
+  activity: 'running',
+  time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+  duration: 50,
+  icon: 'run-fast',
+}
 
 export default function PastActivities() {
   const isDarkMode = useColorScheme() === 'dark'
@@ -13,6 +22,7 @@ export default function PastActivities() {
       <DatePicker />
       <View style={styles.pastActivitiesContainer}>
         <Text style={styles.heading}>Past Activities</Text>
+        <ActivityCard pastActivityData={testData} />
       </View>
     </SafeAreaView>
   )
@@ -49,7 +59,7 @@ const LightModeStyles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     alignContent: 'center',
-    backgroundColor: `rgba(5, 9, 83, .95)`, // primary color was in hex -> converted it to rgba for opacity
+    backgroundColor: LightModeColors.primary,
   },
   heading: {
     color: LightModeColors.primaryFont,
